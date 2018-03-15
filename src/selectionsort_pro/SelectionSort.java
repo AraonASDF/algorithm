@@ -1,5 +1,7 @@
 package selectionsort_pro;
 
+import utils.Utils;
+
 public class SelectionSort {
 	private SelectionSort() {
 	}
@@ -12,14 +14,8 @@ public class SelectionSort {
 					minIndex = j;
 				}
 			}
-			swap(array, i, minIndex);
+			Utils.swap(array, i, minIndex);
 		}
-	}
-
-	private static void swap(Object[] array, int i, int minIndex) {
-		Object temp = array[i];
-		array[i] = array[minIndex];
-		array[minIndex] = temp;
 	}
 
 	public static void main(String[] args) {
@@ -44,12 +40,7 @@ public class SelectionSort {
 		}
 		System.out.println();
 
-		Student[] d = { 
-				new Student("A", 90), 
-				new Student("B", 85), 
-				new Student("C", 97), 
-				new Student("D", 60) 
-				};
+		Student[] d = { new Student("A", 90), new Student("B", 85), new Student("C", 97), new Student("D", 60) };
 		selectionSort(d);
 		for (int i = 0; i < d.length; i++) {
 			System.out.print(d[i] + " ");
