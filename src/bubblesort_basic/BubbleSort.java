@@ -1,7 +1,5 @@
 package bubblesort_basic;
 
-import utils.Utils;
-
 public class BubbleSort {
 	private BubbleSort() {
 	}

@@ -24,4 +24,16 @@ public class InsertionSort {
 		}
 		System.out.println();
 	}
+
+	public static void sort(int[] arr, int l, int r) {
+		for (int i = l + 1; i <= r; i++) {
+			int j;
+			int current = arr[i];
+			for (j = i; j > l && arr[j - 1] > current; j--) {
+				arr[j] = arr[j - 1];
+			}
+			arr[j] = current;
+		}
+
+	}
 }
