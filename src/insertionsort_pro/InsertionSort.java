@@ -8,21 +8,22 @@ public class InsertionSort {
 	}
 
 	public static <T extends Comparable<T>> void sort(T[] arr) {
-		for (int i = 1; i < arr.length; i++) {
-			T current = arr[i];
+		int n = arr.length;
+		for (int i = 1; i < n; i++) {
+			T e = arr[i];
 			int j;
-			for (j = i; j > 0 && arr[j - 1].compareTo(current) > 0; j--) {
+			for (j = i; j > 0 && arr[j - 1].compareTo(e) > 0; j--) {
 				arr[j] = arr[j - 1];
+				// Utils.swap(arr, j, j - 1);
 			}
-			arr[j] = current;
+			arr[j] = e;
 		}
 	}
 
 	public static void main(String[] args) {
-		int n = 100;
+		int n = 100000;
 		Integer[] arr = Utils.generateRandomArray(n, 0, n);
-		Utils.testSort("insertionsort_pro.InsertionSort", arr);
-		Utils.printArray(arr);
+		Utils.testSort(InsertionSort.class, arr);
 	}
 
 }

@@ -12,7 +12,9 @@ public class SelectionSort {
 					minIndex = j;
 				}
 			}
-			swap(array, i, minIndex);
+			if (minIndex != i) {
+				swap(array, i, minIndex);
+			}
 		}
 	}
 

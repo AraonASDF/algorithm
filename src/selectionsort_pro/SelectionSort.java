@@ -14,14 +14,15 @@ public class SelectionSort {
 					minIndex = j;
 				}
 			}
-			Utils.swap(array, i, minIndex);
+			if (minIndex != i) {
+				Utils.swap(array, i, minIndex);
+			}
 		}
 	}
 
 	public static void main(String[] args) {
-		int n = 100;
+		int n = 100000;
 		Integer[] arr = Utils.generateRandomArray(n, 0, n);
-		Utils.testSort("selectionsort_pro.SelectionSort", arr);
-		Utils.printArray(arr);
+		Utils.testSort(SelectionSort.class, arr);
 	}
 }

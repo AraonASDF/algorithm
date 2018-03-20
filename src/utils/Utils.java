@@ -18,16 +18,28 @@ public class Utils {
 		return array;
 	}
 
-	public static <T extends Comparable<T>> void testSort(String className, T[] arr) {
+	public static Integer[] generateNearlyOrderedArray(int n, int swapTimes) {
+		Integer[] arr = new Integer[n];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = i;
+		}
+		for (int i = 0; i < swapTimes; i++) {
+			int m = (int) (Math.random() * n);
+			int l = (int) (Math.random() * n);
+			Utils.swap(arr, m, l);
+		}
+		return arr;
+	}
+
+	public static <T extends Comparable<T>> void testSort(Class className, T[] arr) {
 		try {
-			Class<?> sortName = Class.forName(className);
-			Method selectionSort = sortName.getDeclaredMethod("sort", Comparable[].class);
-			long start = System.currentTimeMillis();
+			Method selectionSort = className.getDeclaredMethod("sort", Comparable[].class);
 			Object[] params = new Object[] { arr };
+			long start = System.currentTimeMillis();
 			selectionSort.invoke(null, params);
 			long end = System.currentTimeMillis();
 			assert isSorted(arr);
-			System.out.println(sortName.getSimpleName() + ":" + (end - start) + "ms");
+			System.out.println(className.getSimpleName() + ":" + (end - start) + "ms");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
