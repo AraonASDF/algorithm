@@ -2,9 +2,6 @@ package mergesort_basic;
 
 import java.util.Arrays;
 
-import insertionsort_basic.InsertionSort;
-
-
 public class MergeSort {
 	private MergeSort() {
 	}
@@ -14,8 +11,7 @@ public class MergeSort {
 	}
 
 	private static void mergesort(int[] arr, int l, int r) {
-		if (r - l <= 15) {
-			InsertionSort.sort(arr, l, r);
+		if (l >= r) {
 			return;
 		}
 		int mid = (l + r) / 2;

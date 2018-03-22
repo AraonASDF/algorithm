@@ -22,7 +22,7 @@ public class MergeSort {
 		int mid = (l + r) / 2;
 		mergeSort(arr, l, mid);
 		mergeSort(arr, mid + 1, r);
-		// 当arr[mid]<arr[mid+1]已经有序，不需要merge
+		// 褰揳rr[mid]<arr[mid+1]鏃讹紝鏁扮粍宸茬粡鏈夊簭涓嶉渶瑕乵erge
 		if (arr[mid].compareTo(arr[mid + 1]) > 0) {
 			merge(arr, l, mid, r);
 		}
