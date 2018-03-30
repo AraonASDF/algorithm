@@ -23,7 +23,7 @@ public class SelectionProblem {
 		} else if (p < n) {
 			return quickSort(arr, l, p - 1, n);
 		} else {
-			return quickSort(arr, l, p + 1, n);
+			return quickSort(arr, p + 1, r, n);
 		}
 	}
 
