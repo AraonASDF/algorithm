@@ -3,7 +3,7 @@ package binarysearch_basic;
 public class BinarySearch {
 	private BinarySearch() {
 	}
-
+	
 	public static int search(int[] arr, int n) {
 		return recursionSearch(arr, 0, arr.length - 1, n);
 	}
@@ -12,7 +12,8 @@ public class BinarySearch {
 		if (l > r) {
 			return -1;
 		}
-		int mid = (l + r) / 2;
+		// 防止int溢出，改用减法
+		int mid = l + (r - l) / 2;
 		if (arr[mid] == n) {
 			return mid;
 		} else if (arr[mid] < n) {
@@ -26,7 +27,8 @@ public class BinarySearch {
 		int l = 0;
 		int r = arr.length - 1;
 		while (l <= r) {
-			int mid = (l + r) / 2;
+			// 防止int溢出，改用减法
+			int mid = l + (r - l) / 2;
 			if (arr[mid] == n) {
 				return mid;
 			} else if (arr[mid] < n) {
