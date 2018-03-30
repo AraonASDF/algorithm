@@ -10,8 +10,7 @@ public class MergeSort {
 	}
 
 	public static <T extends Comparable<T>> void sort(T[] arr) {
-		int len = arr.length;
-		mergeSort(arr, 0, len - 1);
+		mergeSort(arr, 0, arr.length - 1);
 	}
 
 	private static <T extends Comparable<T>> void mergeSort(T[] arr, int l, int r) {

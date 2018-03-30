@@ -1,5 +1,6 @@
 package quicksort_pro;
 
+import insertionsort_pro.InsertionSort;
 import utils.Utils;
 
 public class QuickSort2Ways {
@@ -13,6 +14,10 @@ public class QuickSort2Ways {
 
 	private static <T extends Comparable<T>> void quickSort(T[] arr, int l, int r) {
 
+		if (r - l <= 15) {
+			InsertionSort.sort(arr, l, r);
+			return;
+		}
 		int p = partition(arr, l, r);
 		quickSort(arr, l, p - 1);
 		quickSort(arr, p + 1, r);
@@ -27,13 +32,15 @@ public class QuickSort2Ways {
 			while (i <= r && arr[i].compareTo(v) < 0) {
 				i++;
 			}
-			while (j >= l && arr[j].compareTo(v) > 0) {
+			while (j >= l + 1 && arr[j].compareTo(v) > 0) {
 				j--;
 			}
 			if (i > j) {
 				break;
 			}
 			Utils.swap(arr, i, j);
+			i++;
+			j--;
 		}
 		Utils.swap(arr, l, j);
 		return j;
