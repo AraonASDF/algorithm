@@ -10,6 +10,12 @@ public class Utils {
 		array[minIndex] = temp;
 	}
 
+	public static void swap(int[] arr, int a, int b) {
+		int temp = arr[a];
+		arr[a] = arr[b];
+		arr[b] = temp;
+	}
+
 	public static Integer[] generateRandomArray(int n, int l, int r) {
 		Integer[] array = new Integer[n];
 		for (int i = 0; i < array.length; i++) {
