@@ -26,6 +26,15 @@ public class Utils {
         return array;
     }
 
+    public static int[] generateRandomIntArray(int n, int l, int r) {
+        int[] array = new int[n];
+        Random random = new Random();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(r - l + 1) + l;
+        }
+        return array;
+    }
+
     public static Integer[] generateNearlyOrderedArray(int n, int swapTimes) {
         Integer[] arr = new Integer[n];
         Random random = new Random();
@@ -38,9 +47,21 @@ public class Utils {
         return arr;
     }
 
-    public static void printArray(Object[] arr) {
-        for (Object obj : arr) {
-            System.out.print(obj + " ");
+    public static int[] generateNearlyOrderedIntArray(int n, int swapTimes) {
+        int[] arr = new int[n];
+        Random random = new Random();
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i;
+        }
+        for (int i = 0; i < swapTimes; i++) {
+            Utils.swap(arr, random.nextInt(n), random.nextInt(n));
+        }
+        return arr;
+    }
+
+    public static void printArray(int[] arr) {
+        for (int a : arr) {
+            System.out.print(a + " ");
         }
         System.out.println();
     }

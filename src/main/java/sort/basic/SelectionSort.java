@@ -11,13 +11,15 @@ public class SelectionSort {
     public static void sort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int index = i;
-            for (int j = i; j < arr.length && arr[j] < arr[index]; j++) {
-                index = j;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[index]) {
+                    index = j;
+                }
             }
-            if (i == index) {
-                continue;
+            if (i != index) {
+                Utils.swap(arr, i, index);
             }
-            Utils.swap(arr, i, index);
         }
     }
+
 }
