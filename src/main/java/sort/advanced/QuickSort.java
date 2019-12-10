@@ -24,7 +24,7 @@ public class QuickSort {
         sort(arr, p + 1, r);
     }
 
-    private static int partition(int[] arr, int l, int r) {
+    public static int partition(int[] arr, int l, int r) {
         //随机算法 视情况使用
         int pos = new Random().nextInt(r - l + 1) + l;
         Utils.swap(arr, l, pos);
