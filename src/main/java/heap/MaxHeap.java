@@ -61,7 +61,6 @@ public class MaxHeap {
                 break;
             }
         }
-
         arr[i] = temp;
     }
 
@@ -82,26 +81,4 @@ public class MaxHeap {
         return count == 0;
     }
 
-    public static void main(String[] args) {
-        // 堆中元素个数
-        int n = 100;
-        // 堆中元素取值范围[0, M)
-        int m = 100;
-        int[] arr = new int[n];
-        for (int i = 0; i < n; i++) {
-            arr[i] = (int) (Math.random() * m);
-        }
-        MaxHeap maxHeap = new MaxHeap(arr);
-
-        // 将maxheap中的数据逐渐使用extractMax取出来
-        // 取出来的顺序应该是按照从大到小的顺序取出来的
-        for (int i = 0; i < n; i++) {
-            arr[i] = maxHeap.extractMax();
-            System.out.println(arr[i]);
-        }
-        // 确保arr数组是从大到小排列的
-        for (int i = 1; i < n; i++) {
-            assert arr[i - 1] >= arr[i];
-        }
-    }
 }
