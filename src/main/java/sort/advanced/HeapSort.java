@@ -14,9 +14,9 @@ public class HeapSort {
             shiftDown(arr, n, i);
         }
 
-        for (int i = n; i > 0; i--) {
-            Utils.swap(arr, 0, i);
-            shiftDown(arr, i - 1, 0);
+        for (int i = n; i > 0; ) {
+            Utils.swap(arr, 0, i--);
+            shiftDown(arr, i, 0);
         }
     }
 
