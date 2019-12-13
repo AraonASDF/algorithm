@@ -50,6 +50,77 @@ public class BST<K extends Comparable<K>, V> {
         }
     }
 
+    public void remove(K key) {
+        root = remove(root, key);
+    }
+
+    private Node remove(Node node, K key) {
+        if (node == null) {
+            return null;
+        }
+
+        int result = node.key.compareTo(key);
+        if (result > 0) {
+            node.left = remove(node.left, key);
+        } else if (result < 0) {
+            node.right = remove(node.right, key);
+        } else {
+
+            if (node.left == null) {
+                count--;
+                return node.right;
+            }
+            if (node.right == null) {
+                count--;
+                return node.left;
+            }
+
+            Node successor = max(node.right);
+            successor.right = removeMax(node.right);
+            successor.left = node.left;
+            return successor;
+        }
+        return node;
+    }
+
+    public K max() {
+        return max(root).key;
+    }
+
+    private Node max(Node node) {
+        if (node.right == null) {
+            return node;
+        }
+        return max(node.right);
+    }
+
+    public void removeMax() {
+        root = removeMax(root);
+    }
+
+    private Node removeMax(Node node) {
+        if (node.right == null) {
+            count--;
+            return node.left;
+        }
+
+        node.right = removeMax(node.right);
+        return node;
+    }
+
+    public void removeMin() {
+        root = removeMin(root);
+    }
+
+    private Node removeMin(Node node) {
+        if (node.left == null) {
+            count--;
+            return node.right;
+        }
+        node.left = removeMin(node.left);
+        return node;
+    }
+
     public void preOrder() {
         preOrder(root);
     }
@@ -128,4 +199,5 @@ public class BST<K extends Comparable<K>, V> {
             this.left = this.right = null;
         }
     }
+
 }

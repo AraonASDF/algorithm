@@ -48,29 +48,27 @@ public class MaxHeap {
 
     private void shiftDown(int pos) {
         int temp = arr[pos];
-        int i = pos;
-        while (2 * i <= count) {
-            int j = 2 * i;
+        while (2 * pos <= count) {
+            int j = 2 * pos;
             if (j + 1 <= count && arr[j + 1] > arr[j]) {
                 j++;
             }
             if (arr[j] > temp) {
-                arr[i] = arr[j];
-                i = j;
+                arr[pos] = arr[j];
+                pos = j;
             } else {
                 break;
             }
         }
-        arr[i] = temp;
+        arr[pos] = temp;
     }
 
     private void shiftUp(int pos) {
         int temp = arr[pos];
-        int i = pos;
-        for (; i / 2 >= 1 && arr[i / 2] < temp; i /= 2) {
-            arr[i] = arr[i / 2];
+        for (; pos / 2 >= 1 && arr[pos / 2] < temp; pos /= 2) {
+            arr[pos] = arr[pos / 2];
         }
-        arr[i] = temp;
+        arr[pos] = temp;
     }
 
     public int size() {
