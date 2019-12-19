@@ -19,8 +19,16 @@ public class ArrayList<E> {
         this(DEFAULT_CAPACITY);
     }
 
+    private void checkIndex(int index) {
+        if (index < 0 || index >= size) {
+            throw new IllegalArgumentException("invalid index");
+        }
+    }
+
     public void add(int index, E e) {
-        assert index >= 0 && index < size;
+        if (index < 0 || index > size) {
+            throw new IllegalArgumentException("invalid index");
+        }
         if (size == data.length) {
             resize(size * 2);
         }
@@ -38,7 +46,7 @@ public class ArrayList<E> {
     }
 
     public E remove(int index) {
-        assert index >= 0 && index < size;
+        checkIndex(index);
         E ret = data[index];
 //        for (int i = index; i + 1 < size; i++) {
 //            data[i] = data[i + 1];
@@ -58,12 +66,12 @@ public class ArrayList<E> {
     }
 
     public void set(int index, E e) {
-        assert index >= 0 && index < size;
+        checkIndex(index);
         data[index] = e;
     }
 
     public E get(int index) {
-        assert index >= 0 && index < size;
+        checkIndex(index);
         return data[index];
     }
 
